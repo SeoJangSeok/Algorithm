@@ -3,19 +3,21 @@
 import os
 from urllib import parse
 
-HEADER="""# 
+HEADER = """# 
 # 백준&프로그래머스 문제 풀이 목록
 """
 
 def main():
     content = ""
     content += HEADER
-    
-    directories = [];
-    solveds = [];
+
+    directories = []
+    solveds = []
 
     for root, dirs, files in os.walk("."):
         dirs.sort()
+        files.sort()
+
         if root == '.':
             for dir in ('.git', '.github'):
                 try:
@@ -25,15 +27,15 @@ def main():
             continue
 
         category = os.path.basename(root)
-        
+
         if category == 'images':
             continue
-        
+
         directory = os.path.basename(os.path.dirname(root))
-        
+
         if directory == '.':
             continue
-            
+
         if directory not in directories:
             if directory in ["백준", "프로그래머스"]:
                 content += "## 📚 {}\n".format(directory)
@@ -41,16 +43,26 @@ def main():
                 content += "### 🚀 {}\n".format(directory)
                 content += "| 문제번호 | 링크 |\n"
                 content += "| ----- | ----- |\n"
+
             directories.append(directory)
 
-        for file in files:
-            if category not in solveds:
-                content += "|{}|[링크]({})|\n".format(category, parse.quote(os.path.join(root, file)))
-                solveds.append(category)
-                print("category : " + category)
+        if files and category not in solveds:
+            latest_file = max(
+                files,
+                key=lambda file: os.path.getmtime(os.path.join(root, file))
+            )
+
+            content += "|{}|[링크]({})|\n".format(
+                category,
+                parse.quote(os.path.join(root, latest_file))
+            )
+
+            solveds.append(category)
+            print("category : " + category)
+            print("latest file : " + latest_file)
 
     with open("README.md", "w") as fd:
         fd.write(content)
-        
+
 if __name__ == "__main__":
     main()
