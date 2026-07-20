@@ -1,5 +1,12 @@
 # 
 # 백준&프로그래머스 문제 풀이 목록
+### 🚀 SWEA
+| 문제번호 | 링크 |
+| ----- | ----- |
+### 🚀 D2
+| 문제번호 | 링크 |
+| ----- | ----- |
+|4828. ［S／W 문제해결 기본］ 1일차 － min max|[링크](./SWEA/D2/4828.%E2%80%85%EF%BC%BBS%EF%BC%8FW%E2%80%85%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%E2%80%85%EA%B8%B0%EB%B3%B8%EF%BC%BD%E2%80%851%EC%9D%BC%EC%B0%A8%E2%80%85%EF%BC%8D%E2%80%85min%E2%80%85max/%EF%BC%BBS%EF%BC%8FW%E2%80%85%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%E2%80%85%EA%B8%B0%EB%B3%B8%EF%BC%BD%E2%80%851%EC%9D%BC%EC%B0%A8%E2%80%85%EF%BC%8D%E2%80%85min%E2%80%85max.py)|
 ## 📚 백준
 ### 🚀 Bronze
 | 문제번호 | 링크 |
