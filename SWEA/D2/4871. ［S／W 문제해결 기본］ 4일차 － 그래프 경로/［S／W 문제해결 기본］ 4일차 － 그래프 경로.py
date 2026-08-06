@@ -1,17 +1,24 @@
 def dfs(graph, start, goal, visited):
-    if start == goal:
-        return 1
+    stack = [start]
     
-    visited[start] = True
-    
-    for neighbor in graph[start]:
-        # 방문하지 않은 경우
-        if not visited[neighbor]:
-            if dfs(graph, neighbor, goal, visited):
-                return 1
-
+    while stack:
+        current_node = stack.pop()
+        
+        if current_node == goal:
+            return 1
+        
+        # 이전에 방문한 노드이면 
+        if visited[current_node]:
+            continue
+        
+        # 현재 노드를 방문 처리
+        visited[current_node] = True
+        
+        for neighbor in graph[current_node]:
+            # 방문하지 않은 이웃 노드를 스택에 추가
+            if not visited[neighbor]:
+                stack.append(neighbor)
     return 0
-
 
 T = int(input())
 
